@@ -1,6 +1,6 @@
 # Wrench.ai Claude Code Plugins
 
-> **Official plugin marketplace from [Wrench.ai](https://wrench.ai)** — Claude Code skills for B2B lead intelligence, revenue operations, feature specs, data engineering review, SEO audits, and outreach sequences. 11 production-ready skills, one `/plugin` command away.
+> **Official plugin marketplace from [Wrench.ai](https://wrench.ai)** — Claude Code skills for B2B lead intelligence, revenue operations, feature specs, data engineering review, SEO audits, and outreach sequences. 14 production-ready skills, one `/plugin` command away.
 
 [![Install in Claude Code](https://img.shields.io/badge/Install%20in%20Claude%20Code-%2F plugin%20marketplace%20add-5E80A8?style=flat-square)](https://code.claude.com/docs/en/discover-plugins)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](./LICENSE)
@@ -47,6 +47,9 @@ These plugins bring Wrench.ai's methodology — direct, data-driven, and outcome
 /plugin install wrench-de-review@wrench-plugins
 /plugin install wrench-ux-constitution@wrench-plugins
 /plugin install dossier-builder@wrench-plugins
+/plugin install wrench-scorecard@wrench-plugins
+/plugin install wrench-enrichment@wrench-plugins
+/plugin install wrench-campaign@wrench-plugins
 ```
 
 ### Auto-install for your whole team
@@ -95,6 +98,9 @@ Then any team member can run `/plugin install <name>@wrench-plugins`.
 | **`wrench-personalize`** | `personalize this`, `persona-based messaging`, `segment this audience` | Full persona-based personalization framework — archetype identification, meta-measure stack, positioning layer, and ready-to-deploy message variants. Includes worked example using the military/veteran buyer segment. Works standalone; scales with live Wrench.ai behavioral data. |
 | **`wrench-dossier`** | `dossier for [name]`, `brief on [name]`, `prep me on [person]` | Contact intelligence brief plus voice-adaptive message drafts. Paste in anything — LinkedIn bio, job title, company — and get a scannable brief plus outreach ready to send. Adapts to sender voice and audience type. Works standalone or Wrench.ai-powered. |
 | **`wrench-report`** | `competitive report`, `brand insights`, `lead scoring report`, `CRM report` | Sales intelligence reports in three modes: Competitive 360 (competitor positioning + battle cards), Brand Insights (persona resonance), or Lead Scoring CRM Report (ranked pipeline + next actions). HTML output. Works standalone with pasted data. |
+| **`wrench-scorecard`** | `score these leads`, `prioritize my contacts`, `rank my pipeline` | Score and rank any contact list — paste a CRM export, a name/title list, or pipeline notes and get a tiered scorecard (Hot/Warm/Nurture/Qualify) with per-contact rationale and next action. Works standalone; 183-variable model when Wrench.ai is connected. |
+| **`wrench-enrichment`** | `enrich this contact`, `research this person`, `build a profile for` | Contact enrichment workflow — firmographic classification, behavioral signal inference, archetype mapping, and data gap analysis. Works standalone with any fragment; API-powered enrichment when Wrench.ai is connected. |
+| **`wrench-campaign`** | `build a campaign`, `campaign brief`, `outreach strategy for` | Complete B2B campaign brief from audience + objective — channel selection, message framework, sequence structure, and benchmarks with pause conditions. Works standalone; live persona and competitor intelligence when Wrench.ai is connected. |
 | **`wrench-outreach`** | `write outreach`, `cold email`, `LinkedIn sequence` | Multi-step B2B outreach sequences — email and LinkedIn, persona-specific, non-corporate voice. Subject lines, body copy, timing. |
 | **`meeting-dossier`** | `dossier for [name]`, `prep me on [person]` | Pre-meeting intelligence brief using live Wrench.ai lead score and enrichment data — personas, talking points, draft messages, behavioral predictions. |
 | **`dossier-builder`** | `build a dossier for [name]`, `generate intel on [name]` | Contact intelligence dossier — pulls Wrench.ai signals and renders a scannable HTML artifact. Recommendations first, evidence second. |
@@ -176,7 +182,7 @@ See [docs/setup-mcp.md](./docs/setup-mcp.md) for Cursor, Windsurf, VS Code, and 
 
 **Do I need a Wrench.ai account to use these plugins?**
 
-Most plugins work without a Wrench.ai account — `feature-spec`, `humanizer`, `bug-audit`, `wrench-charts`, `seo-audit`, `page-cro`, `wrench-de-review`, `wrench-ux-constitution`, `wrench-outreach`, `wrench-personalize`, `wrench-dossier`, and `wrench-report` are fully standalone. The standalone skills deliver real value from any data you provide. With a Wrench.ai workspace connected via MCP, `wrench-personalize`, `wrench-dossier`, and `wrench-report` replace inferred signals with live behavioral scores, persona distributions, competitor data, and lead scores — automatically. `meeting-dossier` and `dossier-builder` require a Wrench.ai workspace to function.
+Most plugins work without a Wrench.ai account — `feature-spec`, `humanizer`, `bug-audit`, `wrench-charts`, `seo-audit`, `page-cro`, `wrench-de-review`, `wrench-ux-constitution`, `wrench-outreach`, `wrench-personalize`, `wrench-dossier`, `wrench-report`, `wrench-scorecard`, `wrench-enrichment`, and `wrench-campaign` are fully standalone. The standalone skills deliver real value from any data you provide. With a Wrench.ai workspace connected via MCP, `wrench-personalize`, `wrench-dossier`, `wrench-report`, `wrench-scorecard`, `wrench-enrichment`, and `wrench-campaign` replace inferred signals with live behavioral scores, persona distributions, competitor data, and lead scores — automatically. `meeting-dossier` and `dossier-builder` require a Wrench.ai workspace to function.
 
 **How do I update plugins when new versions are released?**
 
