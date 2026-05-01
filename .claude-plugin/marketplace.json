@@ -1,6 +1,7 @@
 {
   "$schema": "https://schemas.claude.ai/plugin-marketplace/v1",
   "name": "wrench-plugins",
+  "version": "1.1.0",
   "description": "Wrench.ai's official Claude Code plugin marketplace — B2B intelligence, revenue operations, and engineering quality skills",
   "owner": {
     "name": "Wrench.ai",

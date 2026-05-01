@@ -2,6 +2,7 @@
 # https://smithery.ai
 
 name: wrench-plugins
+version: 1.1.0
 description: >
   Wrench.ai's official Claude Code plugin marketplace. Skills for B2B intelligence,
   revenue operations, engineering quality, and content production. Includes chart
@@ -61,3 +62,9 @@ skills:
     description: Comprehensive SEO audit — technical, on-page, Core Web Vitals
   - name: page-cro
     description: Conversion rate optimization for marketing pages
+  - name: wrench-personalize
+    description: Persona-based B2B personalization — archetype, meta-measures, positioning, message variants
+  - name: wrench-dossier
+    description: Contact intelligence brief with voice-adaptive ghostwriter output
+  - name: wrench-report
+    description: Sales intelligence reports — Competitive 360, Brand Insights, or Lead Scoring CRM Report
