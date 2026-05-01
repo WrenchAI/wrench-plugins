@@ -1,0 +1,12 @@
+{
+  "name": "wrench-de-review",
+  "description": "Data engineering PR review — idempotency, dedup, cardinality assertions, schema contracts",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

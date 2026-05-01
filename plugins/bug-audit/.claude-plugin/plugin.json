@@ -1,0 +1,12 @@
+{
+  "name": "bug-audit",
+  "description": "Structured audit for functional bugs, UX bugs, test coverage, and customer-surfaced issues",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

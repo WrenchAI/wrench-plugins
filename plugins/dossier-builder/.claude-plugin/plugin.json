@@ -1,0 +1,12 @@
+{
+  "name": "dossier-builder",
+  "description": "Contact intelligence dossier builder — Wrench.ai signals as a scannable HTML artifact",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

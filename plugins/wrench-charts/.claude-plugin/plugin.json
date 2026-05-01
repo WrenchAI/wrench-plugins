@@ -1,0 +1,12 @@
+{
+  "name": "wrench-charts",
+  "description": "Brand-compliant Recharts chart components — type guide, tokens, tooltip patterns",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

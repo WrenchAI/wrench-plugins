@@ -1,0 +1,12 @@
+{
+  "name": "meeting-dossier",
+  "description": "Pre-meeting intelligence brief from Wrench.ai enrichment — lead score, personas, talking points",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

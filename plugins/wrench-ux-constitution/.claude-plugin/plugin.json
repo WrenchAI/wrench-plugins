@@ -1,0 +1,12 @@
+{
+  "name": "wrench-ux-constitution",
+  "description": "UX governance — 11 principles, Six Pillars, Seven Empirical Gaps, pre-ship checklist",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "wrench-outreach",
+  "description": "Write B2B outreach sequences — email and LinkedIn, multi-step, persona-specific",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

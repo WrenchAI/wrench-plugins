@@ -1,0 +1,12 @@
+{
+  "name": "page-cro",
+  "description": "Conversion rate optimization for marketing pages — hero, CTA, social proof",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

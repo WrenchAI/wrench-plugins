@@ -1,0 +1,12 @@
+{
+  "name": "feature-spec",
+  "description": "Complete feature specs with ACs, task breakdown, and Cypress test plan",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}
