@@ -1,90 +1,54 @@
 # Wrench.ai Claude Code Plugins
 
-> Official plugin marketplace for [Wrench.ai](https://wrench.ai) — B2B intelligence, revenue operations, and engineering quality skills for Claude Code.
+> **Official plugin marketplace from [Wrench.ai](https://wrench.ai)** — Claude Code skills for B2B lead intelligence, revenue operations, feature specs, data engineering review, SEO audits, and outreach sequences. 11 production-ready skills, one `/plugin` command away.
+
+[![Install in Claude Code](https://img.shields.io/badge/Install%20in%20Claude%20Code-%2F plugin%20marketplace%20add-5E80A8?style=flat-square)](https://code.claude.com/docs/en/discover-plugins)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](./LICENSE)
+[![Smithery](https://img.shields.io/badge/Listed%20on-Smithery-9EEFC7?style=flat-square)](https://smithery.ai/server/wrench-plugins)
 
 ---
 
-## Install in 30 seconds
+## What is this?
+
+This is the official Claude Code plugin marketplace from [Wrench.ai](https://wrench.ai) — a B2B intelligence and personalization platform that helps revenue teams understand their buyers through predictive lead scoring, persona matching, behavioral enrichment, and AI-powered outreach.
+
+These plugins bring Wrench.ai's methodology — direct, data-driven, and outcome-focused — to Claude Code as installable skills. Each skill is production-tested and synced from [wrench-dna](https://github.com/WrenchAI/wrench-dna), Wrench.ai's internal standards repository.
+
+**Who is this for?**
+- **Sales and RevOps teams** using Claude Code for prospecting, deal analysis, and outreach
+- **Engineers** who want structured spec writing, bug auditing, and data engineering review
+- **Marketers** building SEO audits and conversion optimization workflows
+- **Anyone** using Claude Code who wants to remove AI writing patterns from their copy
+
+---
+
+## Install
+
+### One-line setup
 
 ```
 /plugin marketplace add github:WrenchAI/wrench-plugins
 ```
 
-Then install any skill:
+### Install individual skills
 
 ```
 /plugin install wrench-charts@wrench-plugins
 /plugin install feature-spec@wrench-plugins
 /plugin install humanizer@wrench-plugins
+/plugin install wrench-outreach@wrench-plugins
+/plugin install meeting-dossier@wrench-plugins
+/plugin install bug-audit@wrench-plugins
+/plugin install seo-audit@wrench-plugins
+/plugin install page-cro@wrench-plugins
+/plugin install wrench-de-review@wrench-plugins
+/plugin install wrench-ux-constitution@wrench-plugins
+/plugin install dossier-builder@wrench-plugins
 ```
 
-Browse all available plugins:
+### Auto-install for your whole team
 
-```
-/plugin list@wrench-plugins
-```
-
----
-
-## Available Skills
-
-### Data & Visualization
-
-| Skill | Install | What it does |
-|---|---|---|
-| `wrench-charts` | `/plugin install wrench-charts@wrench-plugins` | Brand-compliant Recharts components — chart type guide, tokens, tooltip patterns, mobile responsiveness |
-
-### Engineering Quality
-
-| Skill | Install | What it does |
-|---|---|---|
-| `feature-spec` | `/plugin install feature-spec@wrench-plugins` | Write complete feature specs with ACs, task breakdown, and Cypress test plan. Nothing ships without all three. |
-| `bug-audit` | `/plugin install bug-audit@wrench-plugins` | Structured audit for functional bugs, UX bugs, test coverage gaps, and customer-surfaced issues. Produces HOLD / SHIP WITH KNOWN ISSUES / CLEAR TO SHIP. |
-| `wrench-de-review` | `/plugin install wrench-de-review@wrench-plugins` | Data engineering PR review — idempotency, dedup, cardinality assertions, schema contracts, error handling |
-| `wrench-ux-constitution` | `/plugin install wrench-ux-constitution@wrench-plugins` | UX governance — 11 principles, Six Pillars, Seven Empirical Gaps, pre-ship checklist |
-
-### Sales & Outreach
-
-| Skill | Install | What it does |
-|---|---|---|
-| `wrench-outreach` | `/plugin install wrench-outreach@wrench-plugins` | Write B2B outreach sequences (email + LinkedIn) — multi-step, persona-specific, non-corporate voice |
-| `meeting-dossier` | `/plugin install meeting-dossier@wrench-plugins` | Pre-meeting intelligence brief from Wrench.ai enrichment data — lead score, personas, talking points, draft messages |
-| `dossier-builder` | `/plugin install dossier-builder@wrench-plugins` | Contact intelligence dossier builder — pulls Wrench.ai signals, outputs a scannable HTML artifact |
-
-### Content & Marketing
-
-| Skill | Install | What it does |
-|---|---|---|
-| `humanizer` | `/plugin install humanizer@wrench-plugins` | Remove AI writing patterns — strips corporate filler, hedging, and statistical-middle language |
-| `seo-audit` | `/plugin install seo-audit@wrench-plugins` | Comprehensive SEO audit — technical, on-page, Core Web Vitals, indexing, and structured data |
-| `page-cro` | `/plugin install page-cro@wrench-plugins` | Conversion rate optimization for marketing pages — hero, CTA, social proof, and above-the-fold |
-
----
-
-## About Wrench.ai
-
-Wrench.ai is a B2B intelligence and personalization platform. We help revenue teams understand who they're talking to — lead scores, personas, behavioral affinities, and personalized dossiers — so every conversation is smarter.
-
-**Outcomes:**
-- 183% greater lead scoring accuracy than traditional CRM scores
-- Up to 10× improvement in acquisition over traditional lists
-- 12.5–25% SDR productivity improvement
-
-**Links:** [wrench.ai](https://wrench.ai) · [Get a workspace](https://web.wrench.ai) · [API docs](https://api.v2.wrench.ai/docs)
-
----
-
-## Advanced Installation
-
-### Pin to a specific version
-
-```
-/plugin install wrench-charts@wrench-plugins --version 1.2.0
-```
-
-### Add to a project's settings
-
-Add to your `.claude/settings.json` to auto-install for your whole team:
+Add to your project's `.claude/settings.json`:
 
 ```json
 {
@@ -100,37 +64,206 @@ Add to your `.claude/settings.json` to auto-install for your whole team:
 }
 ```
 
-### Use with Claude.ai (non-Code)
-
-Skills in this repo are written as Claude Code plugins. For Claude.ai web/app, copy the `SKILL.md` content into a Project instruction.
+Then any team member can run `/plugin install <name>@wrench-plugins`.
 
 ---
 
-## Listing in Other Marketplaces
+## Available Skills
 
-This repo is registered on:
-- [Smithery](https://smithery.ai/server/wrench-plugins) — MCP registry
-- [Official MCP Registry](https://registry.modelcontextprotocol.io) — modelcontextprotocol.io
-- [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) — under review
+### Data Visualization
+
+| Skill | Trigger | What it does |
+|---|---|---|
+| **`wrench-charts`** | `build a chart`, `add a chart`, `data visualization` | Brand-compliant Recharts components — chart type selection guide, color tokens, custom tooltips, mobile responsiveness. Never writes a chart without correct tokens and layout. |
+
+### Engineering Quality
+
+| Skill | Trigger | What it does |
+|---|---|---|
+| **`feature-spec`** | `write a spec`, `spec this out`, `write a PRD` | Complete feature spec with acceptance criteria, task breakdown, and Cypress test plan. Missing any of the three = incomplete spec. |
+| **`bug-audit`** | `bug audit`, `audit before release`, `QA this feature` | Structured audit covering functional bugs, UX bugs, test coverage gaps, and customer-surfaced classification. Produces HOLD / SHIP WITH KNOWN ISSUES / CLEAR TO SHIP. |
+| **`wrench-de-review`** | `review this PR`, `data engineering review` | Data engineering PR review — idempotency, dedup logic, cardinality assertions, schema contracts, error handling, and automation completeness. |
+| **`wrench-ux-constitution`** | `does this pass the constitution`, `run the checklist` | UX governance skill — 11 design principles, Six Pillars initiative, Seven Empirical Gaps, and a pre-ship checklist. Settles design disagreements. |
+
+### Sales & Intelligence
+
+| Skill | Trigger | What it does |
+|---|---|---|
+| **`wrench-outreach`** | `write outreach`, `cold email`, `LinkedIn sequence` | Multi-step B2B outreach sequences — email and LinkedIn, persona-specific, non-corporate voice. Subject lines, body copy, timing. |
+| **`meeting-dossier`** | `dossier for [name]`, `prep me on [person]` | Pre-meeting intelligence brief using live Wrench.ai lead score and enrichment data — personas, talking points, draft messages, behavioral predictions. |
+| **`dossier-builder`** | `build a dossier for [name]`, `generate intel on [name]` | Contact intelligence dossier — pulls Wrench.ai signals and renders a scannable HTML artifact. Recommendations first, evidence second. |
+
+### Content & Marketing
+
+| Skill | Trigger | What it does |
+|---|---|---|
+| **`humanizer`** | `humanize this`, `make it sound less robotic`, `this sounds like AI` | Removes AI writing patterns — strips hedging, filler phrases, corporate-speak, and statistical-middle phrasing. Makes text specific and direct. |
+| **`seo-audit`** | `SEO audit`, `why am I not ranking`, `technical SEO` | Comprehensive SEO audit — technical issues, on-page optimization, Core Web Vitals, crawl errors, indexing, and structured data. |
+| **`page-cro`** | `CRO`, `this page isn't converting`, `improve my landing page` | Conversion rate optimization for marketing pages — above the fold, CTA clarity, social proof, and bounce rate analysis. |
 
 ---
 
-## Sync & Updates
+## Connect Claude to the Wrench.ai MCP Server
 
-Skills are sourced from the [wrench-dna](https://github.com/WrenchAI/wrench-dna) repository. To update all skills to their latest versions, the Wrench.ai team runs:
+The skills above work standalone. For the intelligence skills (`meeting-dossier`, `dossier-builder`) to pull live data — lead scores, personas, enrichment — you need to connect your Claude instance to your Wrench.ai workspace via MCP.
 
-```bash
-bash scripts/sync-plugins.sh
+### What is the Wrench.ai MCP?
+
+The Wrench.ai MCP (Model Context Protocol) server gives Claude direct access to your workspace data: lead scores, contact enrichment, persona distributions, campaign analytics, competitor intelligence, and more. The MCP is what turns Claude into a revenue co-pilot rather than a generic assistant.
+
+### Set up the Wrench.ai MCP in Claude Code
+
+**Step 1 — Get your workspace API key**
+
+Go to [web.wrench.ai/api-key](https://web.wrench.ai/api-key) and copy your workspace MCP key.
+
+**Step 2 — Add the MCP server to your Claude Code settings**
+
+In your project `.claude/settings.json` (or your global `~/.claude/settings.json`):
+
+```json
+{
+  "mcpServers": {
+    "wrench": {
+      "type": "sse",
+      "url": "https://api.v2.wrench.ai/mcp/sse",
+      "headers": {
+        "x-api-key": "YOUR_WRENCH_API_KEY"
+      }
+    }
+  }
+}
 ```
 
-Users get updates by running:
+Replace `YOUR_WRENCH_API_KEY` with the key from Step 1.
+
+**Step 3 — Verify the connection**
+
+In Claude Code, run:
+
+```
+/mcp
+```
+
+You should see `wrench` listed as a connected server. Then try:
+
+```
+What workspace am I connected to?
+```
+
+Claude will call `get_general_user-info` and confirm your workspace identity.
+
+### Set up the Wrench.ai MCP in Claude.ai (web)
+
+1. Go to [claude.ai](https://claude.ai) → Settings → Integrations → MCP Servers
+2. Click **Add server**
+3. Enter:
+   - **Name:** `Wrench.ai`
+   - **URL:** `https://api.v2.wrench.ai/mcp/sse`
+   - **Auth header:** `x-api-key: YOUR_WRENCH_API_KEY`
+4. Save and confirm the connection
+
+### Set up the Wrench.ai MCP in Cursor
+
+In your Cursor `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "wrench": {
+      "url": "https://api.v2.wrench.ai/mcp/sse",
+      "headers": {
+        "x-api-key": "YOUR_WRENCH_API_KEY"
+      }
+    }
+  }
+}
+```
+
+### Set up the Wrench.ai MCP in Windsurf
+
+In your Windsurf `~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "wrench": {
+      "serverType": "sse",
+      "url": "https://api.v2.wrench.ai/mcp/sse",
+      "headers": {
+        "x-api-key": "YOUR_WRENCH_API_KEY"
+      }
+    }
+  }
+}
+```
+
+### Environments
+
+| Environment | URL |
+|---|---|
+| Production | `https://api.v2.wrench.ai/mcp/sse` |
+| QA | `https://api.qa.wrench.ai/mcp/sse` |
+| Dev | `https://api.dev.wrench.ai/mcp/sse` |
+
+---
+
+## About Wrench.ai
+
+[Wrench.ai](https://wrench.ai) is a B2B intelligence and personalization platform. We turn raw contact and company data into actionable intelligence — predictive lead scores, persona archetypes, behavioral affinities, and personalized outreach — so every business relationship is smarter.
+
+**Measured outcomes:**
+- **183% greater lead scoring accuracy** than traditional CRM scores
+- **Up to 10×** improvement in acquisition over traditional contact lists
+- **12.5–25% SDR productivity improvement** at net-zero cost
+- **1–2 months of additional revenue** captured in the first 12 months
+
+**Core capabilities:** Contact and company enrichment · Predictive lead scoring · Persona and archetype matching · AI-powered message composition · 110+ CRM, eCommerce, and analytics integrations
+
+---
+
+## Frequently Asked Questions
+
+**Do I need a Wrench.ai account to use these plugins?**
+
+Most plugins work without a Wrench.ai account — `feature-spec`, `humanizer`, `bug-audit`, `wrench-charts`, `seo-audit`, `page-cro`, `wrench-de-review`, `wrench-ux-constitution`, and `wrench-outreach` are fully standalone. The intelligence plugins (`meeting-dossier`, `dossier-builder`) require a Wrench.ai workspace and MCP connection to pull live data.
+
+**How do I update plugins when new versions are released?**
 
 ```
 /plugin marketplace update wrench-plugins
 ```
+
+**Can I use these skills in Claude.ai (not Claude Code)?**
+
+Yes. Copy the `SKILL.md` content from any plugin's `skills/<name>/SKILL.md` file and paste it into a Claude.ai Project instruction. The skills are written as plain Markdown and work in any Claude context.
+
+**Are these skills safe? Can they modify my files?**
+
+Skills are instructions, not code that runs automatically. They guide Claude's behavior during a session. The `meeting-dossier` and `dossier-builder` skills make read-only calls to the Wrench.ai API when connected via MCP. No skill writes files or executes commands without explicit user instruction.
+
+**How are these skills kept up to date?**
+
+Skills are synced from [wrench-dna](https://github.com/WrenchAI/wrench-dna), Wrench.ai's internal standards repository. When skills are updated there, they're automatically synced here via `scripts/sync-plugins.sh` in wrench-dna.
+
+---
+
+## Listed On
+
+| Registry | Link |
+|---|---|
+| Official MCP Registry | [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io) |
+| Smithery | [smithery.ai/server/wrench-plugins](https://smithery.ai/server/wrench-plugins) |
+| Glama | [glama.ai/mcp/servers](https://glama.ai/mcp/servers) |
+| mcp.so | [mcp.so](https://mcp.so) |
+| anthropics/claude-plugins-official | Under review |
 
 ---
 
 ## License
 
 MIT — see [LICENSE](./LICENSE)
+
+---
+
+*Maintained by [Wrench.ai](https://wrench.ai) · [Get a workspace](https://web.wrench.ai) · [API docs](https://api.v2.wrench.ai/docs)*
