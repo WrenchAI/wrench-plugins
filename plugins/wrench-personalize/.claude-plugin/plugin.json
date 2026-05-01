@@ -1,0 +1,12 @@
+{
+  "name": "wrench-personalize",
+  "description": "Persona-based B2B personalization framework. Identify the dominant archetype, select the meta-measures that activate it, build a positioning layer, and produce ready-to-deploy message variants. Works standalone — paste in any audience data. With Wrench.ai connected, runs against live behavioral scores and persona distributions.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

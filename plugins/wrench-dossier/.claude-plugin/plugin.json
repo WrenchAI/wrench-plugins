@@ -1,0 +1,12 @@
+{
+  "name": "wrench-dossier",
+  "description": "Contact intelligence dossier with voice-adaptive ghostwriter output. Produces a scannable intelligence brief plus ready-to-send messages adapted to the contact's behavioral profile and the sender's tone. Works standalone with pasted data. With Wrench.ai connected, draws on live lead scores, persona archetypes, and behavioral alignment data.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

@@ -4,7 +4,7 @@
 
 ## Overview
 
-This repository is the official Wrench.ai plugin marketplace for Claude Code. It contains 11 production-ready skills installable via `/plugin marketplace add github:WrenchAI/wrench-plugins`.
+This repository is the official Wrench.ai plugin marketplace for Claude Code. It contains 14 production-ready skills installable via `/plugin marketplace add github:WrenchAI/wrench-plugins`.
 
 Wrench.ai is a B2B intelligence and personalization platform. It provides predictive lead scoring (183% more accurate than CRM scores), persona matching, contact enrichment, and AI-powered outreach for revenue teams.
 
@@ -15,6 +15,9 @@ Install a skill: `/plugin install <skill-name>@wrench-plugins`
 
 ## Available Skills
 
+- wrench-personalize: Persona-based B2B personalization — archetype identification, meta-measure stack, positioning layer, and message variants. Includes worked example using the military/veteran buyer segment. Standalone or Wrench.ai-powered.
+- wrench-dossier: Contact intelligence brief plus voice-adaptive message drafts. Paste any data about a contact and get a scannable brief plus outreach ready to send. Adapts to sender voice and audience type (C-suite, champion, practitioner).
+- wrench-report: Sales intelligence reports — Competitive 360 (competitor positioning and battle cards), Brand Insights (persona resonance), or Lead Scoring CRM Report (ranked pipeline). HTML artifact output. Standalone or live Wrench.ai data.
 - wrench-charts: Brand-compliant Recharts chart generation for React — chart type selection, color tokens, custom tooltips
 - feature-spec: Complete feature specs with acceptance criteria, task breakdown, and Cypress test plan
 - bug-audit: Release audit covering functional bugs, UX bugs, test coverage gaps, and customer-surfaced issues — produces HOLD/SHIP/CLEAR decision

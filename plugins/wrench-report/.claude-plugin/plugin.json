@@ -1,0 +1,12 @@
+{
+  "name": "wrench-report",
+  "description": "Sales intelligence reports with three modes: Competitive 360 (competitor positioning and battle cards), Brand Insights (how your brand resonates across buyer personas), and Lead Scoring CRM Report (ranked contact list with score rationale and next actions). Outputs formatted HTML artifacts. Works standalone with pasted data.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

@@ -141,6 +141,42 @@
       "license": "MIT",
       "category": "marketing",
       "tags": ["cro", "conversion", "landing-page", "marketing", "ux"]
+    },
+    {
+      "name": "wrench-personalize",
+      "source": "./plugins/wrench-personalize",
+      "description": "Persona-based B2B personalization — identify the dominant archetype, select meta-measures that activate it, build positioning, and produce ready-to-deploy message variants. Works standalone, scales with Wrench.ai.",
+      "version": "1.0.0",
+      "author": { "name": "Wrench.ai" },
+      "homepage": "https://wrench.ai",
+      "repository": "https://github.com/WrenchAI/wrench-plugins",
+      "license": "MIT",
+      "category": "sales",
+      "tags": ["personalization", "persona", "b2b", "messaging", "positioning", "segmentation"]
+    },
+    {
+      "name": "wrench-dossier",
+      "source": "./plugins/wrench-dossier",
+      "description": "Contact intelligence brief plus voice-adaptive ghostwriter output. Scannable pre-meeting brief with ready-to-send messages adapted to the contact's behavioral profile and your tone. Standalone or Wrench.ai-powered.",
+      "version": "1.0.0",
+      "author": { "name": "Wrench.ai" },
+      "homepage": "https://wrench.ai",
+      "repository": "https://github.com/WrenchAI/wrench-plugins",
+      "license": "MIT",
+      "category": "sales",
+      "tags": ["dossier", "contact-intelligence", "meeting-prep", "ghostwriter", "outreach", "b2b"]
+    },
+    {
+      "name": "wrench-report",
+      "source": "./plugins/wrench-report",
+      "description": "Sales intelligence reports in three modes: Competitive 360 (competitor positioning + battle cards), Brand Insights (persona resonance analysis), or Lead Scoring CRM Report (ranked pipeline with next actions). HTML artifact output.",
+      "version": "1.0.0",
+      "author": { "name": "Wrench.ai" },
+      "homepage": "https://wrench.ai",
+      "repository": "https://github.com/WrenchAI/wrench-plugins",
+      "license": "MIT",
+      "category": "sales",
+      "tags": ["competitive-intelligence", "sales-report", "lead-scoring", "pipeline", "brand", "crm"]
     }
   ]
 }
