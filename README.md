@@ -107,19 +107,24 @@ Then any team member can run `/plugin install <name>@wrench-plugins`.
 
 The skills above work standalone. For the intelligence skills (`meeting-dossier`, `dossier-builder`) to pull live data — lead scores, personas, enrichment — you need to connect your Claude instance to your Wrench.ai workspace via MCP.
 
+> **Full setup guide:** [docs/setup-mcp.md](./docs/setup-mcp.md) — covers Claude Code CLI, Claude Desktop app (macOS + Windows), Claude.ai Cowork/Chat, VS Code, JetBrains, Cursor, and Windsurf.
+
 ### What is the Wrench.ai MCP?
 
 The Wrench.ai MCP (Model Context Protocol) server gives Claude direct access to your workspace data: lead scores, contact enrichment, persona distributions, campaign analytics, competitor intelligence, and more. The MCP is what turns Claude into a revenue co-pilot rather than a generic assistant.
 
-### Set up the Wrench.ai MCP in Claude Code
+### Quick setup — Claude Code (one command)
 
-**Step 1 — Get your workspace API key**
+```bash
+claude mcp add --transport sse wrench https://api.v2.wrench.ai/mcp/sse \
+  --header "x-api-key: YOUR_WRENCH_API_KEY"
+```
 
-Go to [web.wrench.ai/api-key](https://web.wrench.ai/api-key) and copy your workspace MCP key.
+Get your key at [web.wrench.ai/api-key](https://web.wrench.ai/api-key). Then verify with `/mcp` inside Claude Code.
 
-**Step 2 — Add the MCP server to your Claude Code settings**
+### Quick setup — Claude Desktop app
 
-In your project `.claude/settings.json` (or your global `~/.claude/settings.json`):
+Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or `%APPDATA%\Claude\claude_desktop_config.json` (Windows):
 
 ```json
 {
@@ -135,76 +140,15 @@ In your project `.claude/settings.json` (or your global `~/.claude/settings.json
 }
 ```
 
-Replace `YOUR_WRENCH_API_KEY` with the key from Step 1.
+Quit and relaunch Claude Desktop after saving.
 
-**Step 3 — Verify the connection**
+### Quick setup — Claude.ai Cowork / Chat (web)
 
-In Claude Code, run:
+Settings → Integrations → MCP Servers → Add server:
+- **URL:** `https://api.v2.wrench.ai/mcp/sse`
+- **Header:** `x-api-key: YOUR_WRENCH_API_KEY`
 
-```
-/mcp
-```
-
-You should see `wrench` listed as a connected server. Then try:
-
-```
-What workspace am I connected to?
-```
-
-Claude will call `get_general_user-info` and confirm your workspace identity.
-
-### Set up the Wrench.ai MCP in Claude.ai (web)
-
-1. Go to [claude.ai](https://claude.ai) → Settings → Integrations → MCP Servers
-2. Click **Add server**
-3. Enter:
-   - **Name:** `Wrench.ai`
-   - **URL:** `https://api.v2.wrench.ai/mcp/sse`
-   - **Auth header:** `x-api-key: YOUR_WRENCH_API_KEY`
-4. Save and confirm the connection
-
-### Set up the Wrench.ai MCP in Cursor
-
-In your Cursor `~/.cursor/mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "wrench": {
-      "url": "https://api.v2.wrench.ai/mcp/sse",
-      "headers": {
-        "x-api-key": "YOUR_WRENCH_API_KEY"
-      }
-    }
-  }
-}
-```
-
-### Set up the Wrench.ai MCP in Windsurf
-
-In your Windsurf `~/.codeium/windsurf/mcp_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "wrench": {
-      "serverType": "sse",
-      "url": "https://api.v2.wrench.ai/mcp/sse",
-      "headers": {
-        "x-api-key": "YOUR_WRENCH_API_KEY"
-      }
-    }
-  }
-}
-```
-
-### Environments
-
-| Environment | URL |
-|---|---|
-| Production | `https://api.v2.wrench.ai/mcp/sse` |
-| QA | `https://api.qa.wrench.ai/mcp/sse` |
-| Dev | `https://api.dev.wrench.ai/mcp/sse` |
+See [docs/setup-mcp.md](./docs/setup-mcp.md) for Cursor, Windsurf, VS Code, and JetBrains instructions.
 
 ---
 
