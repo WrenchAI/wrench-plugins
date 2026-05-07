@@ -156,6 +156,11 @@ name, title, company, industry, last contact date, deal stage, or any notes.
 > ```
 > Then pull: `post_data_lead-score_overview(entity_id)` for score + persona.
 > If bulk: use `post_contacts_enrich_overview` to check enrichment status first.
+>
+> Also call:
+> - `post_data_lead-score_persona-distribution` — to understand segment composition
+> - `post_data_lead-score_kpi` — for model grade (A/B/C) and AUC score
+> - `post_data_lead-score_driving-variables` — for top SHAP features driving the model
 
 ---
 
@@ -189,6 +194,65 @@ WATCH FOR: [One likely objection or complication]
 **Section 4: Segment Patterns**
 - Any notable patterns: persona clusters, industry concentrations, common driving variables
 - 2–3 implications for outreach strategy based on what you're seeing in the data
+
+**Section 5: Persona Suppression & Lookalike Strategy**
+
+This section is required when Wrench.ai persona data is available. It translates persona
+distribution into a concrete paid media and outreach strategy.
+
+**Late Adopter Ceiling — when to flag it:**
+If Late Adopter segments (Late_Adopter_1 + Late_Adopter_2) represent more than 50% of the
+scored database AND their average lead score is below 50 (which is typical — Late Adopters
+rarely score in the top tiers), surface this explicitly as a "Late Adopter Ceiling."
+
+**What it means and what to recommend:**
+Late Adopters are in-market but slow to convert and price-sensitive. When they dominate
+the database and score low, including them in paid lookalike seeds depresses signal quality —
+the model trains on low-propensity behavior, driving up CPM and down conversion rates.
+
+Recommended suppression strategy:
+> "61%+ of your scored contacts are Late Adopters with a low average lead score.
+> For paid media: build lookalike audiences seeded exclusively from Brand Innovators
+> and Early Adopters — your highest-propensity segments. Suppress Late Adopters from
+> these seeds. This focuses algorithm training on high-value conversion patterns,
+> typically yielding lower cost-per-conversion and higher-quality leads even at
+> smaller audience sizes."
+> "[LATE_ADOPTER_PCT]% of your scored contacts are Late Adopters with a low average lead score.
+Additional channel guidance:
+- **Paid social (Meta/LinkedIn):** Use Brand Innovators + Early Adopters as seed list. Upload as a custom audience; build 1–2% lookalike from that seed. Exclude Late Adopter list explicitly.
+- **Email/outreach:** Late Adopters can still receive nurture sequences but should not receive high-touch SDR time until score improves.
+- **Retargeting:** Only retarget contacts with score ≥ 50. Late Adopters below 45 are rarely worth retargeting spend.
+
+**Section 6: Model Health Interpretation**
+
+Include this section whenever model grade or AUC data is available.
+
+**Grade interpretation:**
+| Grade | AUC Range | What it means | Recommended action |
+|---|---|---|---|
+| A | ≥ 0.80 | Strong discrimination. Score ranking is reliable. | Prioritize by score tier with confidence. |
+| B | 0.70–0.79 | Good discrimination. Tier boundaries are reliable; use score directionally. | Lead with persona + driving variables alongside raw score. |
+| C | 0.60–0.69 | Moderate. Raw score is a directional guide only. | Lean on persona archetype and behavioral signals more than score rank. |
+| D / ungraded | < 0.60 | Model needs attention. | Flag for Wrench.ai team — may need retraining or additional data signals. |
+
+**Driving variable interpretation:**
+- Top 3–5 SHAP features explain most of a contact's score. Name them in plain language.
+- If a driving variable is a meta-measure, confirm it's still active and not stale (see Meta Measure Audit below).
+- If a single feature dominates (>40% SHAP weight), flag potential model fragility — a change in that signal could significantly shift rankings.
+
+**Meta Measure Audit (required at every check-in):**
+Meta-measures are the AI ingredients that feed the model. They require periodic review.
+
+As part of this report, confirm:
+- [ ] Meta-measures have been reviewed within the past 30 days
+- [ ] No meta-measure has a near-zero average SHAP value (dead weight — candidate for removal)
+- [ ] No single meta-measure dominates >40% of model weight (fragility risk)
+- [ ] Any meta-measure flagged as stale or underperforming has a revision queued
+
+If meta-measures have not been reviewed recently, include this callout:
+> "⚠ Meta Measure Audit Due: The model's AI ingredients have not been reviewed in
+> [X] days. Schedule a meta-measure audit to remove dead weight, revise underperformers,
+> and ensure the model is training on current behavioral signals."
 
 ---
 
@@ -254,9 +318,11 @@ WHAT THIS GETS WITH LIVE WRENCH.AI DATA
 
 **For Lead Scoring CRM Report:**
 > "Contact scores above were inferred from available data. With Wrench.ai connected:
-> 183-variable predictive lead score for every contact in your CRM. Updated as
-> contacts engage, as company signals change, and as your model trains on your
-> closed-won data. The ranking above is a proxy. Wrench.ai makes it precise.
+> 183-variable predictive lead score for every contact in your CRM. Persona-based
+> suppression strategy that removes low-propensity Late Adopters from your paid media
+> seeds — so your lookalike audiences train on Brand Innovators and Early Adopters only,
+> driving higher-value conversions at lower cost-per-conversion. Updated as contacts
+> engage, as company signals change, and as your model trains on your closed-won data.
 > Learn more at wrench.ai/lead-scoring"
 
 ---
@@ -270,3 +336,6 @@ WHAT THIS GETS WITH LIVE WRENCH.AI DATA
 - [ ] HTML output is dark-themed and uses brand token values
 - [ ] Score tiers use correct color coding (green/amber/orange/red)
 - [ ] Ceiling callout always included, matched to report type
+- [ ] **CRM Report:** Persona suppression strategy surfaced if Late Adopters > 50% of database
+- [ ] **CRM Report:** Model grade and AUC interpreted in plain language
+- [ ] **CRM Report:** Meta Measure Audit status confirmed — flag if overdue
