@@ -1,6 +1,6 @@
 # Wrench.ai Claude Code Plugins
 
-> **Official plugin marketplace from [Wrench.ai](https://wrench.ai)** — Claude Code skills for B2B lead intelligence, revenue operations, feature specs, data engineering review, SEO audits, and outreach sequences. 17 production-ready skills, one `/plugin` command away.
+> **Official plugin marketplace from [Wrench.ai](https://wrench.ai)** — Claude Code skills for B2B sales intelligence, outreach, and revenue operations. Organized around three questions: **WHO** do I talk to today? **WHAT** do I say? **WHY** did the AI decide that? 17 production-ready skills, one `/plugin` command away.
 
 [![Install in Claude Code](https://img.shields.io/badge/Install%20in%20Claude%20Code-%2F plugin%20marketplace%20add-5E80A8?style=flat-square)](https://code.claude.com/docs/en/discover-plugins)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](./LICENSE)
@@ -75,13 +75,51 @@ Then any team member can run `/plugin install <name>@wrench-plugins`.
 
 ## Available Skills
 
-### Data Visualization
+The sales skills are organized around three questions every rep needs answered on every deal:
+
+**WHO** → who is this buyer, and who do I contact today?  
+**WHAT** → what do I say, and what happened on the call?  
+**WHY** → why did I prioritize this way — show me the data behind the decision.
+
+---
+
+### WHO — Know Your Buyer
+
+> These skills answer: "Who am I talking to, and who should I focus on today?"
 
 | Skill | Trigger | What it does |
 |---|---|---|
-| **`wrench-charts`** | `build a chart`, `add a chart`, `data visualization` | Brand-compliant Recharts components — chart type selection guide, color tokens, custom tooltips, mobile responsiveness. Never writes a chart without correct tokens and layout. |
+| **`wrench-daily-brief`** | `who should I call today`, `daily brief`, `morning brief`, `who's hot today` | Daily sales prioritization queue — surfaces who to call today, ranked by signal strength, with a why-today reason and opening line for each contact. Standalone or signal-driven with Wrench.ai. |
+| **`wrench-dossier`** | `dossier for [name]`, `brief on [name]`, `prep me on [person]` | Contact intelligence brief plus voice-adaptive message drafts. Paste in anything — LinkedIn bio, job title, company — and get a scannable brief plus outreach ready to send. Adapts to sender voice and audience type. Works standalone or Wrench.ai-powered. |
+| **`wrench-personalize`** | `personalize this`, `persona-based messaging`, `segment this audience` | Full persona-based personalization framework — archetype identification, behavioral signal stack, positioning layer, and ready-to-deploy message variants. Works standalone; scales with live Wrench.ai data. |
 
-### Engineering Quality
+---
+
+### WHAT — Know What to Say
+
+> These skills answer: "What do I write, what do I say, and what just happened on that call?"
+
+| Skill | Trigger | What it does |
+|---|---|---|
+| **`wrench-outreach`** | `write outreach`, `cold email`, `LinkedIn sequence`, `write a message to` | B2B outreach writer — instant single messages or full multi-step sequences, email and LinkedIn. Quick Message mode for one draft in seconds; Sequence mode for full campaigns. With Wrench.ai: hook angle from live behavioral data. |
+| **`wrench-quick-response`** | `book a meeting with`, `introduce [name]`, `ask for a review`, `checking in with` | Conversion-optimized drafts for high-stakes B2B micro-interactions — meeting requests, warm intros, review asks, referral asks, relationship check-ins, and post-meeting thank you notes. Each response type has a specific conversion principle built in. |
+| **`wrench-call-log`** | `log this call`, `call summary`, `I just finished a call with`, `update CRM` | Post-call CRM logging and follow-up writer. Accepts rough notes, bullets, or a voice transcript and produces structured CRM-ready fields, key signals, next action, and a ready-to-send follow-up. With Wrench.ai: pushes outcome to the contact record and calibrates follow-up to behavioral signals. |
+
+---
+
+### WHY — Show Your Work
+
+> These skills answer: "Why did the AI prioritize this way — what data drove the decision?"
+
+Every skill output ends with a WHY block that translates the data reasoning into plain language. The `wrench-report` skill surfaces that evidence as a shareable report.
+
+| Skill | Trigger | What it does |
+|---|---|---|
+| **`wrench-report`** | `competitive report`, `brand insights`, `lead scoring report`, `CRM report` | Sales intelligence reports in three modes: Competitive 360 (competitor positioning + battle cards), Brand Insights (persona resonance), or Lead Scoring CRM Report (ranked pipeline + next actions). HTML output. Works standalone with pasted data. |
+
+---
+
+### Engineering & Quality
 
 | Skill | Trigger | What it does |
 |---|---|---|
@@ -89,20 +127,9 @@ Then any team member can run `/plugin install <name>@wrench-plugins`.
 | **`bug-audit`** | `bug audit`, `audit before release`, `QA this feature` | Structured audit covering functional bugs, UX bugs, test coverage gaps, and customer-surfaced classification. Produces HOLD / SHIP WITH KNOWN ISSUES / CLEAR TO SHIP. |
 | **`wrench-de-review`** | `review this PR`, `data engineering review` | Data engineering PR review — idempotency, dedup logic, cardinality assertions, schema contracts, error handling, and automation completeness. |
 | **`wrench-ux-constitution`** | `does this pass the constitution`, `run the checklist` | UX governance skill — 11 design principles, Six Pillars initiative, Seven Empirical Gaps, and a pre-ship checklist. Settles design disagreements. |
+| **`wrench-charts`** | `build a chart`, `add a chart`, `data visualization` | Brand-compliant Recharts components — chart type selection guide, color tokens, custom tooltips, mobile responsiveness. Never writes a chart without correct tokens and layout. |
 
-### Sales & Intelligence
-
-| Skill | Trigger | What it does |
-|---|---|---|
-| **`wrench-personalize`** | `personalize this`, `persona-based messaging`, `segment this audience` | Full persona-based personalization framework — archetype identification, meta-measure stack, positioning layer, and ready-to-deploy message variants. Includes worked example using the military/veteran buyer segment. Works standalone; scales with live Wrench.ai behavioral data. |
-| **`wrench-dossier`** | `dossier for [name]`, `brief on [name]`, `prep me on [person]` | Contact intelligence brief plus voice-adaptive message drafts. Paste in anything — LinkedIn bio, job title, company — and get a scannable brief plus outreach ready to send. Adapts to sender voice and audience type. Works standalone or Wrench.ai-powered. |
-| **`wrench-report`** | `competitive report`, `brand insights`, `lead scoring report`, `CRM report` | Sales intelligence reports in three modes: Competitive 360 (competitor positioning + battle cards), Brand Insights (persona resonance), or Lead Scoring CRM Report (ranked pipeline + next actions). HTML output. Works standalone with pasted data. |
-| **`wrench-outreach`** | `write outreach`, `cold email`, `LinkedIn sequence`, `write a message to` | B2B outreach writer — instant single messages or full multi-step sequences, email and LinkedIn. Quick Message mode for one draft in seconds; Sequence mode for full campaigns. With Wrench.ai: hook angle from live meta-measure alignment. |
-| **`wrench-daily-brief`** | `who should I call today`, `daily brief`, `morning brief`, `who's hot today` | Daily sales prioritization queue — surfaces who to call today, ranked by signal strength, with a why-today reason and opening line for each contact. Standalone or signal-driven with Wrench.ai. |
-| **`wrench-call-log`** | `log this call`, `call summary`, `I just finished a call with`, `update CRM` | Post-call CRM logging and follow-up writer. Accepts rough notes, bullets, or a voice transcript and produces structured CRM-ready fields, key signals, next action, and a ready-to-send follow-up. With Wrench.ai: pushes outcome to the contact record and calibrates follow-up to meta-measure alignment. |
-| **`wrench-quick-response`** | `book a meeting with`, `introduce [name]`, `ask for a review`, `checking in with` | Conversion-optimized drafts for high-stakes B2B micro-interactions — meeting requests, warm intros, review asks, referral asks, relationship check-ins, and post-meeting thank you notes. Each response type has a specific conversion principle built in. |
-| **`meeting-dossier`** | _(deprecated — use `wrench-dossier`)_ | ⚠️ Deprecated. Use `wrench-dossier` instead — it covers everything this skill does plus standalone mode and voice-adaptive drafts. |
-| **`dossier-builder`** | `build a dossier for [name]`, `generate intel on [name]` | Contact intelligence dossier — pulls Wrench.ai signals and renders a scannable HTML artifact. Recommendations first, evidence second. Requires Wrench.ai workspace. |
+---
 
 ### Content & Marketing
 
@@ -111,6 +138,15 @@ Then any team member can run `/plugin install <name>@wrench-plugins`.
 | **`humanizer`** | `humanize this`, `make it sound less robotic`, `this sounds like AI` | Removes AI writing patterns — strips hedging, filler phrases, corporate-speak, and statistical-middle phrasing. Makes text specific and direct. |
 | **`seo-audit`** | `SEO audit`, `why am I not ranking`, `technical SEO` | Comprehensive SEO audit — technical issues, on-page optimization, Core Web Vitals, crawl errors, indexing, and structured data. |
 | **`page-cro`** | `CRO`, `this page isn't converting`, `improve my landing page` | Conversion rate optimization for marketing pages — above the fold, CTA clarity, social proof, and bounce rate analysis. |
+
+---
+
+### Legacy / Deprecated
+
+| Skill | Status |
+|---|---|
+| **`meeting-dossier`** | ⚠️ Deprecated — use `wrench-dossier` instead. It covers everything this skill does plus standalone mode and voice-adaptive drafts. |
+| **`dossier-builder`** | Requires an active Wrench.ai workspace and internal MCP setup. Not for general use — use `wrench-dossier` for contact intelligence. |
 
 ---
 

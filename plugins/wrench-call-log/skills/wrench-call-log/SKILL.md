@@ -173,28 +173,63 @@ Use this meta-measure to sharpen the follow-up draft if it changes the recommend
 
 ---
 
-## Ceiling Callout
+## WHY Block
 
-Include at the end of every output:
+Include at the end of every output. Write this specifically to the output just produced — name the actual reasoning, not a generic description.
 
+**In standalone mode:**
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-WHAT THIS GETS WITH LIVE WRENCH.AI DATA
+WHY THIS FOLLOW-UP
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1–2 sentences: what angle was chosen for the follow-up and why, based on what the
+call notes told you. Name the actual signal — e.g., "The follow-up leads with the
+ROI data they asked for because that was the explicit blocker they named on the call"
+not "I wrote a relevant follow-up."]
 
-This log was built from your notes. With Wrench.ai connected:
+What's inferred: [1 sentence on what you assumed about their communication style or
+motivation that isn't directly stated in the notes. Be specific — e.g., "The direct
+framing assumes they prefer speed over relationship-building; if they're a slower
+decision-maker, soften the CTA."]
 
-→ The call outcome is pushed back to the contact record — your CRM reflects what
-  actually happened, not what was last updated manually.
+If the angle doesn't land, rewrite the opening sentence of the follow-up first —
+that's where the framing is set.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
-→ The lead score updates to reflect the engagement. A call that went well lifts
-  their behavioral signal. You can see whether they moved toward Hot or stayed flat.
+**With Wrench.ai connected (contact found):**
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHY THIS FOLLOW-UP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Two things shaped this follow-up:
 
-→ The follow-up angle is calibrated to their meta-measure alignment — the behavioral
-  ingredient that resonates most for this specific person. Generic follow-ups get
-  ignored. This one is matched to what they're wired to respond to.
+From the call: [1 sentence on what signal from the call drove the angle — what they
+said, what resonated, what the objection was]
 
-Connect your workspace at wrench.ai or learn more at wrench.ai/enrichment
+From their profile: [translate the top signal in plain language — e.g., "they tend
+to respond to concrete outcomes and peer proof, so the follow-up leads with a result
+rather than a feature list" — never raw score or meta-measure name]
+
+Score movement: [plain language — e.g., "this call pushed them up 6 points — they're
+now in your top 15% and moving toward active consideration" not "score: 71, was 65"]
+
+If this framing doesn't feel right for what you know about [name], trust your read
+and adjust the opening angle first.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+**With Wrench.ai connected (contact not found):**
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHY THIS FOLLOW-UP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+We looked up [name] but couldn't find a contact record — this follow-up was written
+from your call notes only. [Apply standalone WHY: name the signal from the notes
+and what was inferred.]
+
+To get behavioral data on this contact and push the call outcome to their record,
+add them at wrench.ai or run a contact lookup from your workspace.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -207,5 +242,6 @@ Connect your workspace at wrench.ai or learn more at wrench.ai/enrichment
 - [ ] Next Action is specific: what, who, when — not "follow up with them"
 - [ ] Follow-up references something specific from the call — not a template
 - [ ] Key Signals section captures objections and what landed — useful for the next rep who reads the record
-- [ ] With MCP: score updated, meta-measure angle surfaced, follow-up sharpened
-- [ ] Ceiling callout included
+- [ ] With MCP: score updated, follow-up sharpened to their behavioral signals
+- [ ] WHY block is specific to this output — names the actual signal from the call and what was inferred
+- [ ] With MCP: WHY block translates all data to plain language — no raw scores, no technical terms

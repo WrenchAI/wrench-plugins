@@ -162,28 +162,58 @@ If below threshold after 20 sends, pause and revise before expanding.
 
 ---
 
-## Ceiling Callout
+## WHY Block
 
-Include at the end of every output:
+Include at the end of every output. Write this specifically to the output just produced — name the actual angle chosen, not a generic description of it.
 
+**In standalone mode:**
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-WHAT THIS GETS WITH LIVE WRENCH.AI DATA
+WHY THIS MESSAGE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1–2 sentences: what angle was chosen for this draft and why, based on what the user
+told you. Name the actual angle — e.g., "The opening leads with a comparable result
+because you mentioned they're evaluating this against a competitor" not "I used a
+relevant hook."]
 
-This message was written with what you told me. With Wrench.ai connected:
+What's inferred: [1 sentence on what you assumed about this person that you don't
+actually know. Be specific — e.g., "The ROI framing assumes finance is their lens;
+if this person is more operations-focused, switch the hook to efficiency or process."]
 
-→ Hook angle: the opening isn't a guess — it's the meta-measure with the highest
-  alignment score for this specific contact (or segment). That's the difference between
-  a good opener and the one that actually gets a reply.
+If the angle doesn't land, change the opening hook first — that's where the framing is set.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
-→ Persona calibration: the tone and framing automatically match their behavioral archetype
-  — Commander, Analyst, Operator — not a job-title assumption.
+**With Wrench.ai connected (contact found):**
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHY THIS MESSAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[Contact]'s data drove these choices:
+→ Where they stand: [translate the score — e.g., "a strong match, higher than X% of
+  your contacts right now" — not a raw number]
+→ Strongest signal: [translate the top meta-measure to what it means — e.g., "they
+  respond to credibility through peer results" not "Social Proof: 0.82"]
+→ How they think: [translate the persona — e.g., "direct and outcome-first — they
+  want the point before the context" not "Commander persona"]
+→ Why this opening: [1 sentence connecting their signal to the specific choice made
+  in this draft — e.g., "That's why the message leads with a comparable result rather
+  than a product description"]
 
-→ Scale: run this for your entire list in one pass, with each message adapted to each
-  contact's individual behavioral profile.
+If this doesn't match what you know about [name], change the opening hook first.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
-Connect your workspace at wrench.ai or learn more at wrench.ai/outreach
+**With Wrench.ai connected (contact not found):**
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHY THIS MESSAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+We looked up [name] but couldn't find a contact record — this draft was built from
+what you told me. [Apply standalone WHY: name the angle and what was inferred.]
+
+To get behavioral data on this person, add them at wrench.ai or run a contact
+lookup from your workspace.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -198,4 +228,5 @@ Connect your workspace at wrench.ai or learn more at wrench.ai/outreach
 - [ ] Word count within limits for channel
 - [ ] No AI writing tells (leverage, synergies, circle back, etc.)
 - [ ] Hook angle stated in output so sender knows the reasoning
-- [ ] Ceiling callout included
+- [ ] WHY block is specific to this output — names the actual angle, not a generic description
+- [ ] With MCP: WHY block translates all data to plain language — no raw scores, no "meta-measure" or "persona" jargon

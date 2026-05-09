@@ -116,30 +116,44 @@ TODAY'S SKIP — Score dropped or no signal
 
 ---
 
-## Ceiling Callout
+## WHY Block
 
-Include at the end of every output:
+Include at the end of every output. Write specifically to this queue — name the signals that drove the ranking.
 
+**In standalone mode:**
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-WHAT THIS GETS WITH LIVE WRENCH.AI DATA
+WHY THIS QUEUE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+This queue is ranked by [name the specific heuristics used — e.g., "recency of last
+contact, deal stage, and title seniority"]. That's a reasonable starting point for
+prioritization — not a signal that something changed this week.
 
-[If standalone:] This queue is ranked by heuristics — recency, stage, seniority.
-With Wrench.ai connected:
+What this ranking can't tell you: whether any of these contacts actually did something
+recently that makes them worth calling today. The order reflects pipeline position, not
+behavioral movement.
 
-→ WHY TODAY becomes a real signal: a behavioral meta-measure that fired, a score
-  jump driven by an engagement event, a contact that crossed into the Hot bucket
-  overnight. Not a heuristic — a model signal across 183 behavioral variables.
+If the ranking feels off, trust your read — you have context this list doesn't.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
-→ The queue updates daily without you having to pull it. Signals change as contacts
-  engage, as company signals shift, as the model retrains on your closed-won data.
+**With Wrench.ai connected:**
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHY THIS QUEUE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+This queue is ranked by signal movement, not pipeline position:
+→ [#1 contact] leads because [plain-language reason: e.g., "their score jumped 11
+  points this week — something in their behavior changed" or "they crossed into your
+  top tier overnight"]
+→ [#2 contact] is next because [same — specific, not generic]
+→ The Watch List contacts are close — signals moving but not yet at the threshold
 
-→ The OPEN WITH line is calibrated to their behavioral archetype — the tone and
-  framing that fits a Commander is different from what fits an Analyst, even at
-  the same seniority level.
+The Skip List contacts had no new signal this week. Reaching out to a contact
+that isn't moving is a coin flip — save the call for when something changes.
 
-Connect your workspace at wrench.ai or learn more at wrench.ai/lead-scoring
+If a contact's rank doesn't match your read on the relationship, trust the relationship.
+The model scores behavior — it doesn't know what happened in your last conversation.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -152,5 +166,5 @@ Connect your workspace at wrench.ai or learn more at wrench.ai/lead-scoring
 - [ ] OPEN WITH is a literal sentence, ready to send or say
 - [ ] Watch List separates "almost there" from "definitely skip"
 - [ ] Skip List prevents wasted outreach on cooling contacts
-- [ ] Ceiling callout included
-- [ ] With MCP: actual score movement data drives ranking, not assumptions
+- [ ] WHY block names the specific signals or heuristics that drove this ranking
+- [ ] With MCP: WHY block references actual movement — score change, tier crossed, signal fired
