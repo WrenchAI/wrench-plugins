@@ -110,10 +110,9 @@ For each of the top 3 meta-measures:
 
 ## Step 4 — Generate Dossier HTML
 
-Write a complete, self-contained HTML file to:
-```
-C:\Users\danba\AppData\Roaming\Claude\local-agent-mode-sessions\3032396f-bd00-47cf-a61e-598cb7b19266\731717ad-11aa-49be-b8a8-1f6f45e0e043\local_b06ede1b-757d-48e2-bc10-07cd8cbb0c1f\outputs\[first-last]-dossier-output.html
-```
+Write a complete, self-contained HTML file named `[first-last]-dossier-output.html`.
+If the user has specified an output directory, write there. Otherwise ask the user where
+to save it, or write to the current working directory.
 
 ### Design Tokens
 ```css

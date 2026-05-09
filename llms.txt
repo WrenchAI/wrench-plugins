@@ -4,7 +4,7 @@
 
 ## Overview
 
-This repository is the official Wrench.ai plugin marketplace for Claude Code. It contains 14 production-ready skills installable via `/plugin marketplace add github:WrenchAI/wrench-plugins`.
+This repository is the official Wrench.ai plugin marketplace for Claude Code. It contains 17 production-ready skills installable via `/plugin marketplace add github:WrenchAI/wrench-plugins`.
 
 Wrench.ai is a B2B intelligence and personalization platform. It provides predictive lead scoring (183% more accurate than CRM scores), persona matching, contact enrichment, and AI-powered outreach for revenue teams.
 
@@ -23,9 +23,12 @@ Install a skill: `/plugin install <skill-name>@wrench-plugins`
 - bug-audit: Release audit covering functional bugs, UX bugs, test coverage gaps, and customer-surfaced issues — produces HOLD/SHIP/CLEAR decision
 - wrench-de-review: Data engineering PR review — idempotency, dedup, cardinality assertions, schema contracts, error handling
 - wrench-ux-constitution: UX governance — 11 design principles, Six Pillars, Seven Empirical Gaps, pre-ship checklist
-- wrench-outreach: B2B outreach sequences (email + LinkedIn) — multi-step, persona-specific, direct voice
-- meeting-dossier: Pre-meeting intelligence brief using Wrench.ai lead score and enrichment data
-- dossier-builder: Contact intelligence dossier — Wrench.ai signals rendered as a scannable HTML artifact
+- wrench-outreach: B2B outreach writer — single messages or multi-step sequences, email and LinkedIn, persona-specific, direct voice. With Wrench.ai: hook angle from live meta-measure alignment.
+- wrench-daily-brief: Daily sales prioritization queue — who to call today, ranked by signal strength, with why-today reason and opening line. Standalone or Wrench.ai signal-driven.
+- wrench-call-log: Post-call CRM logging and follow-up writer — accepts rough notes or voice transcript, produces CRM-ready fields, key signals, next action, and follow-up draft. With Wrench.ai: pushes outcome to contact record.
+- wrench-quick-response: Conversion-optimized drafts for B2B micro-interactions — meeting requests, warm intros, review asks, referral asks, check-ins, post-meeting thank you notes. Each type has a named conversion principle.
+- meeting-dossier: DEPRECATED — use wrench-dossier instead
+- dossier-builder: Contact intelligence dossier — Wrench.ai signals rendered as a scannable HTML artifact. Requires Wrench.ai workspace.
 - humanizer: Removes AI writing patterns — strips hedging, filler phrases, and corporate-speak
 - seo-audit: Comprehensive SEO audit — technical, on-page, Core Web Vitals, indexing, structured data
 - page-cro: Conversion rate optimization for marketing pages — hero, CTA, social proof, bounce rate

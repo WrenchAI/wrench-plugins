@@ -1,0 +1,12 @@
+{
+  "name": "wrench-call-log",
+  "description": "Post-call CRM logging and follow-up writer — turns rough notes or a voice transcript into structured CRM fields, key signals, next action, and a ready-to-send follow-up message",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

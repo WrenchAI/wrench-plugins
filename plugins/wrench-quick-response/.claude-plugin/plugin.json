@@ -1,0 +1,12 @@
+{
+  "name": "wrench-quick-response",
+  "description": "Conversion-optimized drafts for high-stakes B2B micro-interactions — meeting requests, warm intros, review asks, referral asks, relationship check-ins, and post-meeting thank you notes",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

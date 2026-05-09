@@ -1,0 +1,12 @@
+{
+  "name": "wrench-daily-brief",
+  "description": "Daily sales prioritization queue — surfaces who to call today, ranked by signal strength, with a why-today reason and opening line for each contact",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}
