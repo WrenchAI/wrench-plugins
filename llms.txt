@@ -4,7 +4,7 @@
 
 ## Overview
 
-This repository is the official Wrench.ai plugin marketplace for Claude Code. It contains 17 production-ready skills installable via `/plugin marketplace add github:WrenchAI/wrench-plugins`.
+This repository is the official Wrench.ai plugin marketplace for Claude Code. It contains 22 production-ready skills installable via `/plugin marketplace add github:WrenchAI/wrench-plugins`.
 
 Wrench.ai is a B2B intelligence and personalization platform. It provides predictive lead scoring (183% more accurate than CRM scores), persona matching, contact enrichment, and AI-powered outreach for revenue teams.
 
@@ -33,10 +33,21 @@ Install a skill: `/plugin install <skill-name>@wrench-plugins`
 - wrench-outreach: B2B outreach writer — single messages or multi-step sequences, email and LinkedIn, persona-specific, direct voice. With Wrench.ai: hook angle from live behavioral data.
 - wrench-quick-response: Conversion-optimized drafts for B2B micro-interactions — meeting requests, warm intros, review asks, referral asks, check-ins, post-meeting thank you notes. Each type has a named conversion principle.
 - wrench-call-log: Post-call CRM logging and follow-up writer — accepts rough notes or voice transcript, produces CRM-ready fields, key signals, next action, and follow-up draft. With Wrench.ai: pushes outcome to contact record.
+- deal-strategist: Selects the right playbook, recommends the next action with timing and angle, surfaces proof assets, and drafts personalized outreach calibrated to contact archetype. Works from pasted notes or live CRM data.
+- wrench-deal-estimator: Deal scoping and pricing estimator — selects pricing model, anchors on value before cost, builds a line-item range, and produces a proposal-ready investment rationale. With Wrench.ai: calibrates pricing posture to buyer intent score.
+- content-template-builder: Builds a MASTER archetype-neutral base template plus archetype-calibrated variants (email and LinkedIn) for any deal stage and vertical. Includes personalization checklist and archetype routing guide.
 
 ### WHY — Show Your Work
 
 - wrench-report: Sales intelligence reports — Competitive 360 (competitor positioning and battle cards), Brand Insights (persona resonance), or Lead Scoring CRM Report (ranked pipeline). HTML artifact output. Standalone or live Wrench.ai data.
+
+### Deal Operations & Automation
+
+- passive-deal-updater: Builds an n8n automation that nightly pulls signals from email, calendar, Slack, and CRM activity, synthesizes them with AI, and writes structured deal notes + next steps back to your CRM automatically.
+
+### Platform
+
+- workspace-onboarding: Fully populates a new Wrench.ai workspace before a client's first login — competitors, AI ingredients, seed contacts, AI creatives, and workspace agent — so every screen shows relevant data on day one.
 
 ### Engineering & Quality
 

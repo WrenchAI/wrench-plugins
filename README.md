@@ -1,6 +1,6 @@
 # Wrench.ai Claude Code Plugins
 
-> **Official plugin marketplace from [Wrench.ai](https://wrench.ai)** — Claude Code skills for B2B sales intelligence, outreach, and revenue operations. Organized around three questions: **WHO** do I talk to today? **WHAT** do I say? **WHY** did the AI decide that? 17 production-ready skills, one `/plugin` command away.
+> **Official plugin marketplace from [Wrench.ai](https://wrench.ai)** — Claude Code skills for B2B sales intelligence, outreach, and revenue operations. Organized around three questions: **WHO** do I talk to today? **WHAT** do I say? **WHY** did the AI decide that? 22 production-ready skills, one `/plugin` command away.
 
 [![Install in Claude Code](https://img.shields.io/badge/Install%20in%20Claude%20Code-%2F plugin%20marketplace%20add-5E80A8?style=flat-square)](https://code.claude.com/docs/en/discover-plugins)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](./LICENSE)
@@ -49,6 +49,11 @@ These plugins bring Wrench.ai's methodology — direct, data-driven, and outcome
 /plugin install wrench-de-review@wrench-plugins
 /plugin install wrench-ux-constitution@wrench-plugins
 /plugin install dossier-builder@wrench-plugins
+/plugin install deal-strategist@wrench-plugins
+/plugin install passive-deal-updater@wrench-plugins
+/plugin install wrench-deal-estimator@wrench-plugins
+/plugin install workspace-onboarding@wrench-plugins
+/plugin install content-template-builder@wrench-plugins
 ```
 
 ### Auto-install for your whole team
@@ -104,6 +109,9 @@ The sales skills are organized around three questions every rep needs answered o
 | **`wrench-outreach`** | `write outreach`, `cold email`, `LinkedIn sequence`, `write a message to` | B2B outreach writer — instant single messages or full multi-step sequences, email and LinkedIn. Quick Message mode for one draft in seconds; Sequence mode for full campaigns. With Wrench.ai: hook angle from live behavioral data. |
 | **`wrench-quick-response`** | `book a meeting with`, `introduce [name]`, `ask for a review`, `checking in with` | Conversion-optimized drafts for high-stakes B2B micro-interactions — meeting requests, warm intros, review asks, referral asks, relationship check-ins, and post-meeting thank you notes. Each response type has a specific conversion principle built in. |
 | **`wrench-call-log`** | `log this call`, `call summary`, `I just finished a call with`, `update CRM` | Post-call CRM logging and follow-up writer. Accepts rough notes, bullets, or a voice transcript and produces structured CRM-ready fields, key signals, next action, and a ready-to-send follow-up. With Wrench.ai: pushes outcome to the contact record and calibrates follow-up to behavioral signals. |
+| **`deal-strategist`** | `what's the next step for`, `what should I send`, `prep for my call`, `which playbook` | Selects the right playbook, recommends the next action (with timing, angle, and rationale), surfaces proof assets, and drafts personalized outreach calibrated to contact archetype. Works from pasted notes or live CRM data. |
+| **`wrench-deal-estimator`** | `estimate this deal`, `what would this cost`, `put together a quote`, `scope this` | Deal scoping and pricing estimator — selects the right pricing model, anchors on value before cost, builds a line-item range, and produces a proposal-ready investment rationale. With Wrench.ai: uses buyer intent score to set pricing posture. |
+| **`content-template-builder`** | `create a template`, `build an email template`, `make a template for`, `make a template from this` | Builds a MASTER archetype-neutral base template plus up to 5 archetype-calibrated variants (email and LinkedIn) for any deal stage and vertical. Includes personalization checklist and archetype routing guide. |
 
 ---
 
@@ -116,6 +124,22 @@ Every skill output ends with a WHY block that translates the data reasoning into
 | Skill | Trigger | What it does |
 |---|---|---|
 | **`wrench-report`** | `competitive report`, `brand insights`, `lead scoring report`, `CRM report` | Sales intelligence reports in three modes: Competitive 360 (competitor positioning + battle cards), Brand Insights (persona resonance), or Lead Scoring CRM Report (ranked pipeline + next actions). HTML output. Works standalone with pasted data. |
+
+---
+
+### Deal Operations & Automation
+
+| Skill | Trigger | What it does |
+|---|---|---|
+| **`passive-deal-updater`** | `build the deal updater`, `update my deals automatically`, `nightly deal intelligence`, `passive CRM update` | Builds an n8n automation that nightly pulls signals from email, calendar, Slack, and CRM activity, synthesizes them with AI, and writes structured deal notes + next steps back to your CRM — so your pipeline reflects reality without manual data entry. |
+
+---
+
+### Platform
+
+| Skill | Trigger | What it does |
+|---|---|---|
+| **`workspace-onboarding`** | `set up the workspace`, `populate the workspace`, `get the workspace ready`, `workspace setup` | Fully populates a new Wrench.ai workspace before a client's first login — competitors, AI ingredients (meta-measures), seed contacts, AI creatives, and workspace agent — so every screen shows relevant data on day one. Calls `wrench-report` and `wrench-metameasure-create` as sub-skills. |
 
 ---
 
