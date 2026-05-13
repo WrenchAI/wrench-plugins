@@ -1,0 +1,14 @@
+{
+  "name": "wrench-enrichment",
+  "description": "Contact and company enrichment workflow — firmographic classification, behavioral signal inference, archetype mapping, and data gap analysis. Works standalone; scales with live API enrichment when Wrench.ai is connected.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai/enrichment",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT",
+  "category": "sales",
+  "tags": ["enrichment", "contact-research", "firmographics", "crm", "b2b", "qualification"]
+}
