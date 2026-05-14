@@ -1,108 +1,43 @@
 ---
 name: wrench-outreach
 description: >
-  B2B outreach writer — instant single messages or full multi-step sequences,
-  email and LinkedIn. Works in two modes: Quick Message (one contact, one draft,
-  ready in seconds) and Sequence (multi-step email + LinkedIn with timing and CTAs).
-  Works fully standalone with any data you provide. With Wrench.ai connected, pulls
-  live persona and top meta-measure alignment to sharpen the hook angle.
-  Invoke for: cold outreach, follow-up sequences, LinkedIn messages, single drafts to
-  a named contact, persona-specific copy.
-role: sales
+  Writes outreach sequences (email and LinkedIn) for Wrench.ai prospects.
+  Produces multi-step sequences with subject lines, body copy, and follow-up
+  timing recommendations. Uses Wrench.ai voice: direct, specific, not corporate.
+  Invoke when a user needs to write a cold outreach sequence, follow-up emails,
+  LinkedIn connection requests, or nurture messaging for a specific persona or
+  use case.
+role: cmo
 model:
   tier: operational
-  claude: claude-sonnet-4-6
+  claude: claude-sonnet-4-5
+  downgrade_when: "editing existing copy, reformatting a sequence that already exists"
 triggers:
   - "write outreach"
   - "outreach sequence"
   - "cold email"
   - "LinkedIn sequence"
   - "follow-up sequence"
-  - "write a message to"
-  - "draft a LinkedIn message"
-  - "draft an email to"
-  - "quick outreach"
-  - "message for"
   - "use the wrench-outreach skill"
 ---
 
-# Wrench Outreach
+# Wrench Outreach Skill
 
-You write outreach copy for B2B sales and marketing — single messages or sequences,
-email or LinkedIn, cold or warm.
+You are writing outreach sequences on behalf of Wrench.ai's sales and marketing function.
 
-**Two modes. Route based on the request:**
-- If the user names a specific contact and wants one message → **Quick Message mode**
-- If they need a multi-step sequence or campaign → **Sequence mode**
+## Before You Start
 
-If unclear, ask: "Do you need a single message or a full sequence?"
+1. Confirm the target persona: who is being reached out to (job title, company type, pain point)?
+2. Check whether `deal-enricher` has been run on any named contacts — use those signals if available.
+3. Confirm the channel: email sequence, LinkedIn sequence, or both?
+4. Confirm the goal: book a demo, share a resource, restart a stalled conversation?
 
----
-
-## Quick Message Mode
-
-Use when: "write a message to [name]", "draft a LinkedIn to [person]", "quick email to [contact]"
-
-**Step 1 — Gather contact context**
-
-Extract from the user's message or ask if missing:
-- Contact name + title + company (required)
-- Channel: email or LinkedIn (required)
-- Goal: book a meeting, follow up, re-engage, introduce yourself, other (required)
-- Any context about them: recent news, shared connection, mutual interest, previous interaction
-
-**Step 2 — Pull live signals (if Wrench.ai connected)**
-
-> If MCP is available, call:
-> ```
-> post_contacts_enrich_by-pii(first_name, last_name, company_name?)
-> ```
-> Store `entity_id`. Then call:
-> ```
-> post_data_lead-score_tornado(mode:"meta_measure", entity_id)
-> ```
-> Use the top-ranked meta-measure as the hook angle for the message.
-> Note the persona — it determines tone and framing (see archetypes in wrench-personalize).
-
-**Step 3 — Write the message**
-
-Apply Wrench.ai voice rules (see below). One draft, ready to send.
-
-Output format:
-```
-QUICK MESSAGE — [Channel] — [Contact Name]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Subject line if email]
----
-[Body]
----
-CTA: [The specific ask]
-HOOK ANGLE: [What meta-measure or signal drove this opening — 1 sentence]
-PERSONALIZE: [The one thing to swap in before sending]
-```
-
-Then offer: "Want a follow-up in case they don't respond?"
-
----
-
-## Sequence Mode
-
-Use when: "outreach sequence", "cold email campaign", "3-step LinkedIn", "follow-up series"
-
-**Step 1 — Confirm setup**
-
-Ask for (or extract from message):
-1. Target persona: who is being reached (job title, company type, pain point)?
-2. What are you selling? (the offer, the outcome it creates)
-3. Channel: email, LinkedIn, or both?
-4. Goal: book a demo, share a resource, restart a stalled conversation?
-
-**Step 2 — Build the sequence**
+## Sequence Structure
 
 ### Email sequence (standard)
 
 | Step | Timing | Focus |
-|---|---|---|
+|------|--------|-------|
 | Email 1 | Day 0 | Lead with the specific pain point. One CTA. |
 | Email 2 | Day 3 | Different angle — social proof or a concrete outcome metric. |
 | Email 3 | Day 7 | Short breakup email. Easy to respond to. |
@@ -111,19 +46,30 @@ Ask for (or extract from message):
 ### LinkedIn sequence (standard)
 
 | Step | Timing | Focus |
-|---|---|---|
+|------|--------|-------|
 | Connection request | Day 0 | Personalized note, ≤200 characters. Reference something specific. |
 | Message 1 | Day 1 after connect | Intro + specific pain point. Not a pitch. |
 | Message 2 | Day 5 | Ask a question. Make it easy to reply. |
 
-**With Wrench.ai connected:**
+## Wrench.ai Voice Rules
 
-> Call `post_data_lead-score_persona-distribution` to get the actual persona split for
-> this segment. If one persona is ≥40% of the list, optimize the sequence for that archetype.
-> Call `post_data_lead-score_tornado(mode:"meta_measure")` to get the ranked meta-measures
-> for the segment — use the top two as the hook angle for Email 1 and Email 2.
+- **Direct.** First sentence states the point. No "I hope this finds you well."
+- **Specific.** Reference their company, title, or a known signal. "B2B companies like yours" is not specific.
+- **Outcome-focused.** Lead with what changes for them, not what Wrench does.
+- **Short.** Cold email body: ≤100 words. LinkedIn message: ≤75 words.
+- **One CTA per message.** Never ask for a demo AND a reply in the same email.
 
-**Output format for each step:**
+## Benchmark
+
+Before scaling any sequence beyond 20 contacts, establish:
+- Open rate benchmark: ≥40%
+- Reply rate benchmark: ≥5%
+
+If below threshold after 20 sends, pause and revise before expanding.
+
+## Output Format
+
+For each step in the sequence, output:
 
 ```
 STEP [N] — [Channel] — Day [X]
@@ -135,98 +81,4 @@ CTA: [the specific ask]
 Benchmark signal: [what a good response looks like]
 ```
 
----
-
-## Wrench.ai Voice Rules
-
-Apply to every message in both modes:
-
-- **Direct.** First sentence states the point. No "I hope this finds you well."
-- **Specific.** Reference their company, title, or a known signal. "B2B companies like yours" is not specific.
-- **Outcome-focused.** Lead with what changes for them, not what you do.
-- **Short.** Cold email body: ≤100 words. LinkedIn message: ≤75 words. Connection request: ≤200 characters.
-- **One CTA per message.** Never ask for a demo AND a reply in the same message.
-- **No AI tells.** Don't write "leverage", "synergies", "I wanted to reach out", "I hope you're doing well", "touch base", or "circle back." These are the words that make people delete without reading.
-
-After drafting, run a mental check against the humanizer skill — if a phrase sounds like a template, rewrite it until it sounds like a person.
-
----
-
-## Benchmark (Sequence Mode)
-
-Before scaling any sequence beyond 20 contacts, establish:
-- Open rate benchmark: ≥40%
-- Reply rate benchmark: ≥5%
-
-If below threshold after 20 sends, pause and revise before expanding.
-
----
-
-## WHY Block
-
-Include at the end of every output. Write this specifically to the output just produced — name the actual angle chosen, not a generic description of it.
-
-**In standalone mode:**
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-WHY THIS MESSAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[1–2 sentences: what angle was chosen for this draft and why, based on what the user
-told you. Name the actual angle — e.g., "The opening leads with a comparable result
-because you mentioned they're evaluating this against a competitor" not "I used a
-relevant hook."]
-
-What's inferred: [1 sentence on what you assumed about this person that you don't
-actually know. Be specific — e.g., "The ROI framing assumes finance is their lens;
-if this person is more operations-focused, switch the hook to efficiency or process."]
-
-If the angle doesn't land, change the opening hook first — that's where the framing is set.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**With Wrench.ai connected (contact found):**
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-WHY THIS MESSAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Contact]'s data drove these choices:
-→ Where they stand: [translate the score — e.g., "a strong match, higher than X% of
-  your contacts right now" — not a raw number]
-→ Strongest signal: [translate the top meta-measure to what it means — e.g., "they
-  respond to credibility through peer results" not "Social Proof: 0.82"]
-→ How they think: [translate the persona — e.g., "direct and outcome-first — they
-  want the point before the context" not "Commander persona"]
-→ Why this opening: [1 sentence connecting their signal to the specific choice made
-  in this draft — e.g., "That's why the message leads with a comparable result rather
-  than a product description"]
-
-If this doesn't match what you know about [name], change the opening hook first.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**With Wrench.ai connected (contact not found):**
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-WHY THIS MESSAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-We looked up [name] but couldn't find a contact record — this draft was built from
-what you told me. [Apply standalone WHY: name the angle and what was inferred.]
-
-To get behavioral data on this person, add them at wrench.ai or run a contact
-lookup from your workspace.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
----
-
-## Output Quality Bar
-
-- [ ] Mode is correctly identified (Quick Message vs Sequence) before starting
-- [ ] First sentence leads with a specific point — no warm-up filler
-- [ ] Body copy references something specific to this contact or segment
-- [ ] CTA is singular and explicit
-- [ ] Word count within limits for channel
-- [ ] No AI writing tells (leverage, synergies, circle back, etc.)
-- [ ] Hook angle stated in output so sender knows the reasoning
-- [ ] WHY block is specific to this output — names the actual angle, not a generic description
-- [ ] With MCP: WHY block translates all data to plain language — no raw scores, no "meta-measure" or "persona" jargon
+Run the `humanizer` skill on all output before delivering — Wrench.ai copy must not read as AI-generated.

@@ -1,0 +1,12 @@
+{
+  "name": "contact-deep-enricher",
+  "description": "Deep B2B contact enrichment from public sources — LinkedIn, Crunchbase, news, tech stack, trigger events — writes to Wrench.ai workspace",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wrench.ai",
+    "email": "dan@wrench.ai"
+  },
+  "homepage": "https://wrench.ai",
+  "repository": "https://github.com/WrenchAI/wrench-plugins",
+  "license": "MIT"
+}

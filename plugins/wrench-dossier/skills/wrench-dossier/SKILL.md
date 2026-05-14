@@ -37,22 +37,6 @@ persona distributions, and behavioral alignment data from the actual model.
 
 ---
 
-## When to Trigger
-
-**Keyword signals:**
-- "build a dossier", "dossier for [contact name]", "brief on [name]"
-- "prep me on [name]", "who is [person]", "tell me about [person]"
-- "pre-meeting intel", "research this contact", "before I call [name]"
-- "draft outreach for [name]", "write a message to [contact]"
-- "meeting prep", "prospect research"
-
-**Context signals:**
-- User pastes a LinkedIn URL or profile excerpt
-- User mentions a contact name right before a scheduled meeting
-- User asks "what do I know about [company/person]" without a specific data goal
-
----
-
 ## Step 1 — Intake
 
 Collect from the user's message (or ask if missing):
