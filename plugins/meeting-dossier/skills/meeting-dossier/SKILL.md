@@ -1,7 +1,20 @@
 ---
 name: meeting-dossier
-description: "Generate a pre-meeting intelligence dossier for a specific contact using live Wrench.ai lead score and enrichment data. Use when the user says 'dossier for [name]', 'pre-meeting intel for [contact]', 'prep dossier', 'meeting dossier', 'generate a dossier for [person]', 'build a contact dossier', 'prep me on [name]', 'who is [name] at [company]' in a context that also asks for scoring or Wrench intel, or any request to produce a structured, printable one-page intelligence brief on a contact before a call. Outputs a standalone HTML artifact with KPIs, playbook recommendations, draft messages, meta-measure alignment, behavioral predictions, and Shapley drivers — structured so actionable recommendations lead and raw model evidence follows."
+description: "DEPRECATED — use wrench-dossier instead. wrench-dossier supersedes this skill with standalone support, voice-adaptive drafts, and the same live Wrench.ai enrichment. Install: /plugin install wrench-dossier@wrench-plugins"
+deprecated: true
+superseded_by: wrench-dossier
 ---
+
+> ⚠️ **This skill is deprecated.** Use [`wrench-dossier`](https://github.com/WrenchAI/wrench-plugins/tree/main/plugins/wrench-dossier) instead.
+>
+> `wrench-dossier` covers everything this skill does — pre-meeting intel, live Wrench.ai enrichment,
+> playbook recommendations, draft messages — plus standalone mode (no MCP required), voice-adaptive
+> ghostwriting, and an updated output format.
+>
+> Install the replacement:
+> ```
+> /plugin install wrench-dossier@wrench-plugins
+> ```
 
 # Meeting Dossier
 
