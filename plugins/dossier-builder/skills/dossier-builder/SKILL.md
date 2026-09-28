@@ -17,12 +17,9 @@ artifact shows the result.**
 
 ## ⚠️ WORKSPACE GUARDRAIL — NON-NEGOTIABLE
 
-Before making any data calls, verify you are authenticated to your Wrench.ai org workspace
-(not a client workspace connector). If multiple Wrench.ai connectors are available, confirm
-which one is your organization's workspace — never use a client account's connector to look
-up contacts or pull scores.
-
-If you are unsure which connector to use, ask the user before proceeding.
+**ONLY use connector `eb7f1fde-dc15-4344-8b4d-682af81dabb1` (Wrench.ai org workspace).**
+Verify with `get_general_user-info` before the first data call — must return `"organization": "Wrench.ai"`.
+Never use client connectors (REE Medical, BMW, Martin's Point, Refuel, Refuel DEMO).
 
 ---
 
@@ -90,23 +87,17 @@ Generate 2 objections this contact is likely to raise (based on suppressors) wit
 ### Sender-Specific Overlap (Non-Negotiable)
 Section title: **"Your Overlap With [First Name]"**
 
-This section is framed as the intersection between the **sender's** profile and the contact's
-behavioral data — not generic signals. The sender is the person running this skill (the user).
-
 Include a personalization banner:
 - Headline: "Personalized messaging intelligence"
-- `Sender: [Your Name]` badge (orange pill) — replace [Your Name] with the user's name if known
-- Body: *"These aren't generic angles that work on [First Name] — they're the angles that work
-  when you reach out to them. Wrench matched your profile against theirs and surfaced the overlap:
-  where your natural communication style meets what [First Name] is wired to respond to. A different
-  sender would get different recommendations. These are yours."*
+- `Sender: Dan Baird` badge (orange pill)
+- Body: *"These aren't generic angles that work on [First Name] — they're the angles that work when you reach out to them. Wrench matched your profile against theirs and surfaced the overlap: where your natural communication style meets what [First Name] is wired to respond to. A different sender would get different recommendations. These are yours."*
 
 For each of the top 3 meta-measures:
 - Rank label (`Strongest resonance · #1` etc.)
 - Meta-measure name
 - Visual resonance bar (fill proportional to score)
 - `HOW TO USE IT WITH [FIRST NAME]` label
-- 2–3 sentences of specific, actionable guidance for the sender on how to deploy this angle with this specific person
+- 2–3 sentences of specific, actionable guidance for Dan on how to deploy this angle with this specific person
 - Left accent bar: card 1 = orange (`#F1956F`), card 2 = blue (`#5E80A8`), card 3 = green (`#4ECDC4`)
 
 ### Behavioral Predictions
@@ -119,13 +110,9 @@ For each of the top 3 meta-measures:
 
 ## Step 4 — Generate Dossier HTML
 
-Write a complete, self-contained HTML file to your Cowork outputs directory:
-```
-[outputs-directory]/[first-last]-dossier-output.html
-```
-
-Use the Cowork working directory path for your session. If unsure, use the default outputs
-folder shown in your environment.
+Write a complete, self-contained HTML file named `[first-last]-dossier-output.html`.
+If the user has specified an output directory, write there. Otherwise ask the user where
+to save it, or write to the current working directory.
 
 ### Design Tokens
 ```css
@@ -196,7 +183,7 @@ If `dossier-generator` artifact doesn't exist (first run), call `mcp__cowork__cr
 - [ ] Draft messages require zero editing to send
 - [ ] The Play tells exactly what to open with
 - [ ] Objection responses reference this contact's specific suppressors
-- [ ] "Your Overlap" section has sender badge and relational framing
+- [ ] "Your Overlap" section has `Sender: Dan Baird` badge and relational framing
 - [ ] HOW TO USE guidance is specific to this person — not generic
 - [ ] Evidence sections collapsed by default
 - [ ] View in Wrench deep-link present and correct

@@ -28,6 +28,19 @@ Authoritative DNA references:
 
 ---
 
+## Companion Skill — Always Co-Load
+
+This skill governs **behavior and experience**. For any task involving building UI, always load it alongside:
+
+| Task | Load alongside this skill |
+|---|---|
+| Building a UI component, artifact, or template | `wrench-design-system` — provides the components and tokens to build with |
+| Reviewing, auditing, or pre-ship checking | Use Part 5 of this skill (Code Review & Audit Mode) — it contains the full checklist, findings format, and agent denylist |
+
+**Rule:** Any time "design", "component", "build", "screen", or "artifact" appears in the task, load `wrench-design-system` alongside this skill.
+
+---
+
 ## How to Use This Skill
 
 When this skill is triggered, Claude should:
@@ -82,6 +95,22 @@ cause, communicates next steps, and — when it's our fault — says so plainly.
 - Third-party fault → "[Provider] is experiencing issues outside our control. Here's what you can
   do in the meantime."
 - User action needed → "[Specific thing] needs attention. Here's how to fix it in 60 seconds."
+
+**Error-message contract for work started in the background**:
+- Lead with the outcome in plain language: what stopped, and what work did **not** complete. A
+  start or progress notice must never stand as the last visible state after a failure.
+- Name a cause only when verified. If the cause is unknown, say we are checking it; do not imply
+  that a token, provider, or user caused a failure without evidence.
+- State the next action and who owns it. Say whether the system will retry automatically or whether
+  a new request is needed. Do not promise recovery or a timeline that has not been confirmed.
+- Put the failure where the commitment was made (for example, on the same pull request as a
+  review-start notice). An operator-only alert may supplement that update, but cannot replace it.
+  Update or supersede stale status when the work later succeeds; deduplicate repeated attempts.
+- Keep status codes, session IDs, and links to diagnostic records in secondary operator details.
+  Never lead with a code, raw exception, stack trace, prompt, or secret.
+
+Example: “We couldn't start this review because Claude has reached the team's usage limit. No
+review was posted. Ask for a new review after access is restored.”
 
 **The anti-pattern**: Raw HTTP status codes. Stack traces. "Something went wrong." "An error
 occurred." Error messages that imply user error when the system failed.
@@ -447,7 +476,9 @@ Run this before every PR, every design review, every agent prompt update, every 
 change. If any item is unchecked, the feature is not ready to ship.
 
 - [ ] **P1 — Visibility**: Does the user always know what's happening?
-- [ ] **P2 — Error ownership**: Is every error message honest, clear, and attributed?
+- [ ] **P2 — Error ownership**: Does each failure say what stopped, what did not complete,
+  the verified cause (or that it is unknown), who acts next, and whether it retries? Does it
+  update the surface that showed progress, with technical codes kept secondary?
 - [ ] **P3 — Plain language**: Is every word intelligible to a non-technical user? No banned terms?
 - [ ] **P4 — Time respect**: Is this the minimum viable friction to reach the next value moment?
 - [ ] **P5 — Agent character**: Does the agent sound like a person who knows this user?
@@ -470,7 +501,84 @@ change. If any item is unchecked, the feature is not ready to ship.
 
 ---
 
-## Part 5 — Notion References
+## Part 5 — Code Review & Audit Mode
+
+When this skill is triggered during a **PR review, code audit, or frontend session**, run it as an operational audit. This replaces the retired `wrench-ux-audit` skill.
+
+### Scope the Review
+
+| Surface | What to check |
+|---|---|
+| Frontend component | Empty states, loading states, error states, toast messages, copy |
+| Agent / bot response | Language, tone, uncertainty communication, no capability disclaimers |
+| API error handler | Attribution (our fault / external / user action), plain language |
+| Onboarding flow | Minimum fields, time-to-value, progressive disclosure |
+| Notification / toast | Severity, persistence, batching, opt-out path |
+
+For `wrench-plugin` or `wrench-frontend` PRs: check every new string literal, error message, empty state, loading indicator, and user-visible copy block. Then check if the same component or pattern exists in the other repo — cross-repo inconsistencies are 🟠 High findings.
+
+### Code Anti-Pattern Signals
+
+Grep for these in any frontend or agent code:
+
+| Signal | Principle | Fix |
+|---|---|---|
+| Raw `error.message` or `error.status` in JSX | P2 | Use error attribution framework |
+| `console.error` without user-facing fallback | P2 | Add toast or inline error |
+| Empty catch blocks | P2 | Handle and surface the error |
+| `"Something went wrong."` or `"An error occurred."` | P2 | Rewrite with cause + next step |
+| `err.toString()` in UI text | P2 | Translate to plain language |
+| Jargon strings (meta-measure, enrichment job, pipeline, etc.) | P3 | Apply language map |
+| Missing `aria-live` on dynamic content | P11 | Add region |
+| CSS animation without `prefers-reduced-motion` check | P11 | Add media query |
+| Color-only status indicator (no icon) | P11 | Add icon alongside color |
+| `toast.dismiss()` without replacement messaging | P1 | Replace with a new toast |
+| Agent response containing "I cannot see", "I can't access", "As an AI", "I don't have permission" | P5 | See agent denylist below |
+
+### Agent Response Denylist
+
+Flag any of these patterns in agent tool descriptions, system prompts, or error messages:
+
+| Pattern | Replace with |
+|---|---|
+| "I cannot see" / "I can't see" | State the actual system status |
+| "I cannot access" / "I can't access" | State what data is available |
+| "I don't have permission" | State what action is needed |
+| "As an AI" | Drop entirely or rephrase |
+| "I can't browse" / "I cannot view" | State what tool or data path to use |
+| "I cannot find that ingredient" | "The '[name]' ingredient wasn't found in this workspace" |
+| "[Ingredient] is not connected" | "[Ingredient] is set up but hasn't been scored yet. Run an AI scoring update." |
+| "No campaign Data Found" | "No ingredients are configured yet" OR "Run an AI scoring update to activate score data" |
+
+### Findings Report Format
+
+Output a prioritized findings list:
+
+```
+## UX Audit Findings — [Component / PR / File]
+
+### 🔴 Critical (blocks ship)
+- [P2] src/components/ErrorBoundary.tsx:47 — Raw error.message shown to user. Rewrite with error attribution framework.
+
+### 🟠 High (fix before merge)
+- [P3] src/pages/onboarding/Step2.tsx:23 — "Enrichment job" used in label. Replace with "Contact lookup".
+
+### 🟡 Medium (follow-up ticket)
+- [Gap4] Notification batch logic missing — 5 toasts firing for 5 score updates.
+
+### 🟢 Low / Nice-to-have
+- [P6] Onboarding completion animation fires on every login. Should fire once.
+
+### ✅ Passed
+- Plain language: all strings use approved substitutions
+- Accessibility: all animations include prefers-reduced-motion fallbacks
+```
+
+Only list passes worth noting. One line per finding.
+
+---
+
+## Part 6 — Notion References
 
 The authoritative versions of these *behavioral* principles live in Notion. The *visual* tokens
 they reference live in `wrench-dna/docs/brand/`. Always fetch from source before making
